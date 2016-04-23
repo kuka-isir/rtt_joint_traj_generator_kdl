@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<package>
+  <name>rtt_joint_traj_generator_kdl</name>
+  <version>1.0.0</version>
+  <description>The rtt_joint_traj_generator_kdl package from https://github.com/jhu-lcsr/lcsr_controllers</description>
+
+  <author email="jbo@jhu.edu">Jonathan Bohren</author>
+  <maintainer email="hoarau@isir.upmc.fr">Antoine Hoarau</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>eigen</build_depend>
+  <build_depend>eigen_typekit</build_depend>
+  <build_depend>kdl_typekit</build_depend>
+  <build_depend>orocos_kdl</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rtt</build_depend>
+  <build_depend>rtt_actionlib</build_depend>
+  <build_depend>rtt_ros</build_depend>
+  <build_depend>rtt_ros_kdl_tools</build_depend>
+  <build_depend>rtt_rosclock</build_depend>
+  <build_depend>rtt_rosparam</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>trajectory_msgs</build_depend>
+  <build_depend>rtt_trajectory_msgs</build_depend>
+  <build_depend>kdl_parser</build_depend>
+  <build_depend>rtt_ros_kdl_tools</build_depend>
+  <build_depend>cmake_modules</build_depend>
+
+  <run_depend>rtt_ros_kdl_tools</run_depend>
+  <run_depend>kdl_parser</run_depend>
+  <run_depend>eigen</run_depend>
+  <run_depend>eigen_typekit</run_depend>
+  <run_depend>kdl_typekit</run_depend>
+  <run_depend>orocos_kdl</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>rtt</run_depend>
+  <run_depend>rtt_actionlib</run_depend>
+  <run_depend>rtt_ros</run_depend>
+  <run_depend>rtt_ros_kdl_tools</run_depend>
+  <run_depend>rtt_rosclock</run_depend>
+  <run_depend>rtt_rosparam</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>trajectory_msgs</run_depend>
+  <run_depend>rtt_trajectory_msgs</run_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <rtt_ros>
+      <plugin_depend>rtt_sensor_msgs</plugin_depend>
+      <plugin_depend>rtt_rosparam</plugin_depend>
+      <plugin_depend>rtt_roscomm</plugin_depend>
+      <plugin_depend>rtt_trajectory_msgs</plugin_depend>
+      <plugin_depend>eigen_typekit</plugin_depend>
+      <plugin_depend>kdl_typekit</plugin_depend>
+  </rtt_ros>
+  </export>
+</package>

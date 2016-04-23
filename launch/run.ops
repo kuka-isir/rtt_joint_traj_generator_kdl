@@ -1,0 +1,6 @@
+import("rtt_rospack")
+runScript(ros.find("lwr_utils")+"/scripts/utils.ops")
+
+loadRobot(getRobotName(),true,true)
+loadStatePublisher(true)
+loadJointTrajectoryGeneratorKDL(true)
