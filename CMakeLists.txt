@@ -24,7 +24,7 @@ orocos_component(${PROJECT_NAME} src/${PROJECT_NAME}.cpp)
 
 target_link_libraries(${PROJECT_NAME} ${OROCOS_KDL_LIBRARIES} ${catkin_LIBRARIES} ${USE_OROCOS_LIBRARIES})
 
-orocos_install_headers(FILE include/${PROJECT_NAME}/${PROJECT_NAME}.h)
+orocos_install_headers(DIRECTORY include/${PROJECT_NAME})
 
 orocos_generate_package(
   INCLUDE_DIRS include
