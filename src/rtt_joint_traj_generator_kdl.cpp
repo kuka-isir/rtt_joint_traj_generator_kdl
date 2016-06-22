@@ -85,6 +85,9 @@ bool JointTrajGeneratorKDL::configureHook()
   trajectory_start_times_.resize(n_dof_);
   trajectory_end_times_.resize(n_dof_);
 
+  joint_position_out_.setDataSample(joint_position_sample_);
+  joint_velocity_out_.setDataSample(joint_velocity_sample_);
+
   velocity_smoothing_factor_ = 0.95;
 
   if(rosparam)
@@ -118,11 +121,6 @@ bool JointTrajGeneratorKDL::startHook()
 
 void JointTrajGeneratorKDL::updateHook()
 {
-  // Get the current and the time since the last update
-  const RTT::Seconds
-    time = RTT::nsecs_to_Seconds(RTT::os::TimeService::Instance()->getNSecs()),
-    period = this->getPeriod();
-
   // Read in the current joint positions & velocities
   bool new_position_data = (joint_position_in_.readNewest(joint_position_) == RTT::NewData);
   bool new_velocity_data = (joint_velocity_in_.readNewest(joint_velocity_raw_) == RTT::NewData);
@@ -131,6 +129,13 @@ void JointTrajGeneratorKDL::updateHook()
   if(!new_position_data) {
     return;
   }
+
+  // Get the current and the time since the last update
+  static ros::Time last = rtt_rosclock::host_now();
+  ros::Time now = rtt_rosclock::host_now();
+
+  double period = (now - last).toSec();
+  double time = now.toSec();
 
   // Check the minimum requirements to compute the control command
   if(new_velocity_data || has_last_position_data_) {
@@ -216,9 +221,9 @@ void JointTrajGeneratorKDL::updateHook()
 
   }
 
-  RTT::log(RTT::Debug) << "joint_position_sample_ : "<<joint_position_sample_.transpose() << RTT::endlog();
-  RTT::log(RTT::Debug) << "position_tolerance_ : "<<position_tolerance_.transpose() << RTT::endlog();
-  RTT::log(RTT::Debug) << "joint_position_ : "<<joint_position_.transpose() << RTT::endlog();
+  // RTT::log(RTT::Debug) << "joint_position_sample_ : "<<joint_position_sample_.transpose() << RTT::endlog();
+  // RTT::log(RTT::Debug) << "position_tolerance_ : "<<position_tolerance_.transpose() << RTT::endlog();
+  // RTT::log(RTT::Debug) << "joint_position_ : "<<joint_position_.transpose() << RTT::endlog();
 
   // Send instantaneous joint position and velocity commands
   joint_position_out_.write(joint_position_sample_);
