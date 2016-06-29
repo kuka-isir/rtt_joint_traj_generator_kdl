@@ -1,6 +1,8 @@
 import("rtt_rospack")
 runScript(ros.find("lwr_utils")+"/scripts/utils.ops")
 
-loadRobot(getRobotName(),isSim(),true)
+loadRobot(getRobotName(),isSim(),false)
+setRobotInitialJointConfiguration(0.661875, 0.014708, 0.34514, -1.42871, -0.00902665, 1.71645, 0.0)
+startComponent(getRobotName())
 loadStatePublisher(true)
 loadJointTrajectoryGeneratorKDL(true)

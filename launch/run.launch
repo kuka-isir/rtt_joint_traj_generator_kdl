@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <launch>
 
-    <arg name="tip_link" default="ati_link"/>
+    <arg name="tip_link" default="link_7"/>
     <arg name="sim" default="false" />
     <arg name="debug" default="false" />
     <arg name="rviz" default="true" />
@@ -9,15 +9,17 @@
 
     <arg name="load_base" default="true" />
     <arg name="load_ati_sensor" default="true" />
-    <arg name="load_calib_tool" default="true" />
+    <arg name="load_table" default="true" />
     <arg name="load_handle" default="true" />
+    <arg name="load_head_cam" default="true" />
+    <arg name="load_screwdriver" default="true" />
 
-    <arg name="gazebo_gui" default="false"/>
+    <arg name="gazebo_gui" default="true"/>
 
     <!-- The parameters that the JT Controller sensor will get -->
     <rosparam ns="lwr_sim_traj_kdl" subst_value="true">
-        trap_max_vels: [0.5, 0.5, 1.5, 0.8, 1.0, 1.0, 0.5]
-        trap_max_accs: [0.02, 0.06, 0.06, 0.04, 0.06, 0.06, 0.06]
+        trap_max_vels: [1.5, 1.5, 1.5, 1.8, 1.0, 0.5, 0.5]
+        trap_max_accs: [0.2, 0.6, 0.6, 0.4, 0.6, 0.06, 0.06]
         position_tolerance: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
     </rosparam>
     <!--============ LWR Runner script ===============-->
@@ -31,8 +33,10 @@
         <arg name="tip_link" value="$(arg tip_link)"/>
         <arg name="load_base" value="$(arg load_base)" />
         <arg name="load_ati_sensor" value="$(arg load_ati_sensor)" />
-        <arg name="load_calib_tool" value="$(arg load_calib_tool)" />
+        <arg name="load_table" value="$(arg load_table)" />
         <arg name="load_handle" value="$(arg load_handle)" />
+        <arg name="load_head_cam" value="$(arg load_head_cam)" />
+        <arg name="load_screwdriver" value="$(arg load_screwdriver)" />
         <arg name="gazebo_gui" value="$(arg gazebo_gui)"/>
     </include>
 
