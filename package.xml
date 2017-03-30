@@ -7,7 +7,7 @@
   <author email="jbo@jhu.edu">Jonathan Bohren</author>
   <maintainer email="hoarau@isir.upmc.fr">Antoine Hoarau</maintainer>
 
-  <license>BSD</license>
+  <license>CeCILL-C</license>
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>eigen</build_depend>
