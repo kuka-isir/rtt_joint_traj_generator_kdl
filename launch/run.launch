@@ -13,6 +13,7 @@
     <arg name="load_handle" default="true" />
     <arg name="load_head_cam" default="true" />
     <arg name="load_screwdriver" default="true" />
+    <arg name="robot_description_upload_file" default="$(find lwr_description)/launch/lwr_upload.launch"/>
 
     <arg name="gazebo_gui" default="true"/>
 
@@ -38,6 +39,7 @@
         <arg name="load_head_cam" value="$(arg load_head_cam)" />
         <arg name="load_screwdriver" value="$(arg load_screwdriver)" />
         <arg name="gazebo_gui" value="$(arg gazebo_gui)"/>
+        <arg name="robot_description_upload_file" value="$(arg robot_description_upload_file)"/>
     </include>
 
 </launch>
