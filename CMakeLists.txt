@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(rtt_joint_traj_generator_kdl)
-set(CMAKE_BUILD_TYPE Debug)
+
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rtt_ros
